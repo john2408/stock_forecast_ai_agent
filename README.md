@@ -51,8 +51,13 @@ This is a user-friendly Streamlit application that integrates AI-based probabili
 
 # 🚀 Usage
 
-1.	Enter a prompt in natural language like : *Get stock price forecast for NVIDIA for the next 15 days*
+1.	Enter a prompt in natural language like : *Get stock price forecast for Microsoft for the next 15 days*
 3.	Press the Generate Forecast button.
 4.	View:
     - Historical stock price data.
     - Forecasted prices with a shaded region indicating uncertainty (low to high estimates)
+
+## Sample Visualization 
+
+<img src="img/prompt.png" width=600>
+<img src="img/forecast.png" width=600>

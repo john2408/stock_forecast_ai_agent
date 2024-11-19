@@ -31,8 +31,8 @@ if __name__ == '__main__':
                 st.write(f"Generating forecast for {stock_symbol} with Chronos Model...")
                 
 
-                st.write(f"Forecast for {stock_symbol}:")
-                st.dataframe(forecast)
+                st.write(f"Forecast for {stock_symbol} for next {prediction_days} prediction_days")
+                
 
                 # Plot historical and forecast data
                 historical_horizon = 100
@@ -85,5 +85,6 @@ if __name__ == '__main__':
                 # Display the chart in Streamlit
                 st.plotly_chart(fig, use_container_width=True)
 
+                st.dataframe(forecast)
         except Exception as e:
             st.error(f"Error processing the forecast: {e}")
