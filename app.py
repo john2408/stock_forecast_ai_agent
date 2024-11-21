@@ -23,7 +23,9 @@ if __name__ == '__main__':
             stock_symbol = arguments["stock_symbol"]
             prediction_days = arguments.get("prediction_days", 10)
 
-            st.write(f"Ready to fetch forecast for {stock_symbol} for {prediction_days} days.")
+            st.write(f"Fetching historical data for ticker {stock_symbol} from Yahoo API...")
+
+            st.write(f"Ready to predict {prediction_days} days ahead. ")
             
             # Add a button to generate the forecast
             if st.button("Generate Forecast"):
@@ -31,7 +33,7 @@ if __name__ == '__main__':
                 st.write(f"Generating forecast for {stock_symbol} with Chronos Model...")
                 
 
-                st.write(f"Forecast for {stock_symbol} for next {prediction_days} prediction_days")
+                st.write(f"Forecast for {stock_symbol} for next {prediction_days} days")
                 
 
                 # Plot historical and forecast data
@@ -85,6 +87,8 @@ if __name__ == '__main__':
                 # Display the chart in Streamlit
                 st.plotly_chart(fig, use_container_width=True)
 
-                st.dataframe(forecast)
+                forecast['date'] = forecast_dates
+
+                st.dataframe(forecast.filter(['ticker','date','forecast_median', 'forecast_lower', 'forecast_high' ]))
         except Exception as e:
             st.error(f"Error processing the forecast: {e}")
