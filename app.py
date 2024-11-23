@@ -27,7 +27,6 @@ if __name__ == '__main__':
 
             st.write(f"Ready to predict {prediction_days} days ahead. ")
             
-            # Add a button to generate the forecast
             if st.button("Generate Forecast"):
 
                 st.write(f"Generating forecast for {stock_symbol} with Chronos Model...")
@@ -35,8 +34,6 @@ if __name__ == '__main__':
 
                 st.write(f"Forecast for {stock_symbol} for next {prediction_days} days")
                 
-
-                # Plot historical and forecast data
                 historical_horizon = 100
                 historical_dates = df_historical_data['ds'].values[-historical_horizon:]
                 historical_prices = df_historical_data['y'].values[-historical_horizon:]
@@ -56,7 +53,6 @@ if __name__ == '__main__':
                     line=dict(color='blue')
                 ))
 
-                # Add forecast median
                 fig.add_trace(go.Scatter(
                     x=forecast_dates,
                     y=forecast["forecast_median"],
@@ -75,7 +71,6 @@ if __name__ == '__main__':
                     line=dict(color='rgba(255, 165, 0, 0)')
                 ))
 
-                # Customize the layout
                 fig.update_layout(
                     title=f"{stock_symbol} Historical Data and Forecast",
                     xaxis_title="Date",
